@@ -6,7 +6,13 @@ import { FlashMessagesService }    from './flash-messages.service';
 @NgModule({
     imports:      [ CommonModule ],
     declarations: [ FlashMessagesComponent ],
-    exports:      [ FlashMessagesComponent ],
-    providers:    [ FlashMessagesService ]
+    exports:      [ FlashMessagesComponent ]
 })
-export class FlashMessagesModule {}
+export class FlashMessagesModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: FlashMessagesModule,
+            providers: [FlashMessagesService]
+        }
+    }
+}
